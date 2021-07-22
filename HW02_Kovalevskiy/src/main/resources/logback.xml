@@ -1,0 +1,41 @@
+<configuration>
+    <property file="HW02_Kovalevskiy/src/main/resources/logback.properties" />
+
+    <appender name="TASK1_ACTUAL" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${log.filePath}/task1/${log.actual}</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${log.filePath}/task1/${log.actualRolling}</fileNamePattern>
+            <maxHistory>${log.maxHistory}</maxHistory>
+            <totalSizeCap>${log.totalSizeCap}</totalSizeCap>
+        </rollingPolicy>
+        <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+            <maxFileSize>${log.maxFileSize}</maxFileSize>
+        </triggeringPolicy>
+        <encoder>
+            <pattern>${log.pattern}</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="TASK1_ERROR" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${log.filePath}/task1/${log.error}</file>
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>ERROR</level>
+        </filter>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${log.filePath}/task1/${log.errorRolling}</fileNamePattern>
+            <maxHistory>${log.maxHistory}</maxHistory>
+            <totalSizeCap>${log.totalSizeCap}</totalSizeCap>
+        </rollingPolicy>
+        <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+            <maxFileSize>${log.maxFileSize}</maxFileSize>
+        </triggeringPolicy>
+        <encoder>
+            <pattern>${log.pattern}</pattern>
+        </encoder>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="TASK1_ACTUAL" />
+        <appender-ref ref="TASK1_ERROR" />
+    </root>
+</configuration>
