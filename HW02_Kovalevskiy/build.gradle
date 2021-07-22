@@ -1,0 +1,39 @@
+test {
+    useJUnitPlatform()
+}
+
+dependencies {
+    // lombok
+    compileOnly libraries.lombok
+    annotationProcessor libraries.lombok
+    testCompileOnly libraries.lombok
+    testAnnotationProcessor libraries.lombok
+
+    // junit5_core
+    testImplementation libraries.junit5_core
+    testRuntimeOnly libraries.junit5_core
+    // junit5_api
+    testImplementation libraries.junit5_api
+    testRuntimeOnly libraries.junit5_api
+    // junit5_params
+    testImplementation libraries.junit5_params
+    testRuntimeOnly libraries.junit5_params
+
+    // assertj
+    testImplementation libraries.assertj_core
+
+    // slf4j
+    compileOnly libraries.slf4j_api
+    runtimeOnly libraries.slf4j_api
+    testCompileOnly libraries.slf4j_api
+    // logback_core
+    compileOnly libraries.logback_core
+    runtimeOnly libraries.logback_core
+    testCompileOnly libraries.logback_core
+    // logback_classic
+    compileOnly libraries.logback_classic
+    runtimeOnly libraries.logback_classic
+    testCompileOnly libraries.logback_classic
+}
+
+description = 'home_work_02'
